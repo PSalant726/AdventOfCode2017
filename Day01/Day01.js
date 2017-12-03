@@ -2,7 +2,7 @@ const inputArr = "56729875333539561996296839415645286462625671174334615477477939
   .split("")
   .map(numStr => { return parseInt(numStr, 10); });
 
-const solveCaptcha = (arr) => {
+const partOne = (arr) => {
   let sum = 0;
 
   arr.forEach((num, idx) => {
@@ -19,4 +19,19 @@ const solveCaptcha = (arr) => {
   return sum;
 };
 
-solveCaptcha(inputArr);
+const partTwo = (arr) => {
+  let sum = 0;
+
+  arr.forEach((num, idx) => {
+    let corrNum = getCorrNum(arr, idx);
+
+    if (corrNum && (num === corrNum)) sum += num;
+  });
+
+  return sum;
+};
+
+const getCorrNum = (arr, idx) => {
+  let newIdx = idx + (arr.length / 2);
+  return arr[newIdx] || arr[newIdx - arr.length];
+};
