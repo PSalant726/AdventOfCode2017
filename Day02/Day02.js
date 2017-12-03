@@ -15,6 +15,16 @@ const partOne = (sheet) => {
   return checkSum;
 };
 
+const partTwo = (sheet) => {
+  let checkSum = 0;
+
+  sheet.forEach(row => {
+    checkSum += getRowQuotient(row);
+  });
+
+  return checkSum;
+};
+
 const getRowDifference = (row) => {
   let max = row[0];
   let min = row[0];
@@ -30,3 +40,21 @@ const getRowDifference = (row) => {
 
   return max - min;
 };
+
+const getRowQuotient = (row) => {
+  let numerator, denominator;
+
+  row.forEach((nume, numeIdx) => {
+    row.forEach((denom, denomIdx) => {
+      if ((numeIdx !== denomIdx) && (nume % denom === 0)) {
+        numerator = nume;
+        denominator = denom;
+      }
+    });
+  });
+
+  return numerator / denominator;
+};
+
+// partOne(input);
+partTwo(input);
