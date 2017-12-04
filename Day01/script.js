@@ -1,9 +1,7 @@
-let fs = require("fs");
+const AdventInput = require("../adventInput.js");
 
-const inputText = fs.readFileSync(process.argv[2], { encoding : 'utf-8' });
-const inputArr = inputText.split("").map(numStr => {
-  return parseInt(numStr, 10);
-});
+const input = new AdventInput(1);
+const inputArr = input.content;
 
 const nextDigitSum = (arr) => {
   let sum = 0;

@@ -1,11 +1,7 @@
-let fs = require("fs");
+const AdventInput = require("../adventInput.js");
 
-const inputText = fs.readFileSync(process.argv[2], { encoding : 'utf-8' });
-const inputArr = inputText.split("\n").map(row => {
-  return row.split("\t").map(num => {
-    return parseInt(num, 10);
-  });
-});
+const input = new AdventInput(2);
+const inputArr = input.content;
 
 const getDifferenceCheckSum = (sheet) => {
   let checkSum = 0;
