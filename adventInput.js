@@ -22,6 +22,9 @@ class AdventInput {
           });
         });
 
+      case 3:
+        return parseInt(inputText);
+
       default:
         throw new Error(`Day ${day} not configured.`);
     }
