@@ -25,6 +25,9 @@ class AdventInput {
       case 3:
         return parseInt(inputText);
 
+      case 4:
+        return inputText.split("\n");
+
       default:
         throw new Error(`Day ${day} not configured.`);
     }
