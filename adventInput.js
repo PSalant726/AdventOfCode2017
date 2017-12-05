@@ -28,6 +28,11 @@ class AdventInput {
       case 4:
         return inputText.split("\n");
 
+      case 5:
+        return inputText.split("\n").map(num => {
+          return parseInt(num, 10);
+        });
+
       default:
         throw new Error(`Day ${day} not configured.`);
     }
