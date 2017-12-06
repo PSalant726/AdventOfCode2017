@@ -23,13 +23,18 @@ class AdventInput {
         });
 
       case 3:
-        return parseInt(inputText);
+        return parseInt(inputText, 10);
 
       case 4:
         return inputText.split("\n");
 
       case 5:
         return inputText.split("\n").map(num => {
+          return parseInt(num, 10);
+        });
+
+      case 6:
+        return inputText.split("\t").map(num => {
           return parseInt(num, 10);
         });
 
