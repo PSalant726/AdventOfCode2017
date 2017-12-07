@@ -38,9 +38,32 @@ class AdventInput {
           return parseInt(num, 10);
         });
 
+      case 7:
+        return this.buildMap(inputText);
+
       default:
         throw new Error(`Day ${day} not configured.`);
     }
+  }
+
+  buildMap(input) {
+    let map = {};
+
+    input.split("\n").forEach(row => {
+      let program = row.split(" ")[0].trim();
+      let children = row.split("> ")[1] || [];
+      let weight = parseInt(row.match(/\((\d+)\)/)[1], 10);
+
+      if (children.length) {
+        children = children.split(",").map(name => {
+          return name.trim();
+        });
+      }
+
+      map[program] = [children, weight];
+    });
+
+    return map;
   }
 };
 
